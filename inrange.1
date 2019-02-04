@@ -1,0 +1,64 @@
+.TH INRANGE 1 "4 February 2019" "1.0.0" "inrange Manual"
+.SH NAME
+inrange \- A tool that reads numbers from stdin and outputs them to stdout only if they are within a specific range
+
+.SH SYNOPSIS
+.B inrange
+.IR "lower_limit"
+.IR "upper_limit"
+.br
+
+.SH DESCRIPTION
+inrange reads data line by line from \fIstdin\fR.
+It expects one number per line.
+Invalid lines will be dropped (a warning will be printed to \fIstderr\fR).
+For each valid line, the tool checks if the value is in a specific range:
+
+\fIvalue ≥ lower-limit ∧ value ≤ upper-limit\fR
+
+If the value is in the defined range, it gets print to \fIstdout\fR.
+
+The range is defined by the command line arguments.
+It is recommend that the first argument is the lower limit and the second argument the upper limit.
+The tool actually checks and swaps the limit if necessary.
+
+The data type of the values get determined when the tool gets built.
+By default, the tool expects integers, some builds may allow floating point numbers.
+
+
+.SH OPTIONS
+.TP
+.BR \filower_limit\fR
+Output all values that are greater or equal to \fIlower_limit\fR, and …
+.TP
+.BR \fiupper_limit\fR
+… less or equal to \fIupper_limit\fR.
+
+.SH EXIT STATUS
+.TP
+0
+Everything OK
+.TP
+1
+Invalid arguments. See error message written to \fIstderr\fR.
+
+
+.SH AUTHOR
+Written by Ralf Stemmer <ralf.stemmer@gmx.net>
+
+.SH REPORTING BUGS
+GitHub: <https://github.com/rstemmer/inrange/issues>
+
+.SH COPYRIGHT
+onpts  Copyright (C) 2018  Ralf Stemmer <ralf.stemmer@gmx.net>
+.br
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+.br
+This program comes with ABSOLUTELY NO WARRANTY
+.br
+This is free software, and you are welcome to redistribute it
+under certain conditions.
+
+.SH SEE ALSO
+Full documentation at: <https://github.com/rstemmer/inrange>
+
